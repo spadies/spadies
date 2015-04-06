@@ -1,0 +1,3 @@
+# Module spadiesweb
+# RPC service class, partial path of RPC policy file
+spadies.web.client.GreetingService, 084180E5EB4DC74CCD4FC3D1CFB1DA8D.gwt.rpc

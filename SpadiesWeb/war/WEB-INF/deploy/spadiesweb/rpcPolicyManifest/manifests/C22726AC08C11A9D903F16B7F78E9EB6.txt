@@ -1,0 +1,2 @@
+serviceClass: spadies.web.client.GreetingService
+path: 084180E5EB4DC74CCD4FC3D1CFB1DA8D.gwt.rpc
