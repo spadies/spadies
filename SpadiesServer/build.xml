@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Este build.xml se ejecuta con Apache Ant 1.6.5 o superior -->
+
+<project name="SPADIES" default="distClient" basedir=".">
+  <property name="version.mayor" value="2.8"/>
+  <target name="distClient">
+    <property name="archivoZip" value="spadies_v${version.mayor}.zip"/>
+    <delete dir="binAux"/>
+    <mkdir dir="binAux"/>
+    <javac classpath="lib/jcommon-1.0.0.jar;lib/jfreechart-1.0.1.jar" srcdir="src" destdir="binAux"
+        debug="on" debuglevel="lines,source"
+        excludes="**/spadies/web/**"/>
+    <copy todir="binAux">
+      <fileset dir="src" includes="**/*.gif, **/*.jpg, **/*.png, **/*.html, **/LICENSE"/>
+    </copy>
+    <delete dir="binAux/spadies/server"/>
+    <delete dir="binAux/spadies/auxiliar"/>
+  	<delete dir="binAux/spadies/web"/>
+    <delete dir="dist"/>
+    <mkdir dir="dist"/>
+    <mkdir dir="dist/spadies_v${version.mayor}"/>
+    <jar destfile="dist/spadies_v${version.mayor}/spadies_v${version.mayor}.jar" basedir="binAux" manifest="manifest.mf"/>
+    <copy todir="dist/spadies_v${version.mayor}">
+      <fileset dir="docs/dist" includes="**/**" excludes="**/cvs/**"/>
+      <fileset dir="." includes="lib/**" excludes="**/cvs/**"/>
+    </copy>
+    <zip zipfile="${archivoZip}" basedir="dist"/>
+    <delete dir="binAux"/>
+    <delete dir="dist"/>
+  </target>
+  <target name="distServer">
+    <delete dir="binAux"/>
+    <mkdir dir="binAux"/>
+    <javac classpath="lib/jcommon-1.0.0.jar;lib/jfreechart-1.0.1.jar" srcdir="src" destdir="binAux" debug="on" debuglevel="lines,source" excludes="**/spadies/web/**,**/spadies/gui/**,**/spadies/auxiliar/**,**/spadies/tools/**"/>
+    <delete dir="binAux/spadies/gui"/>
+    <delete dir="binAux/spadies/auxiliar"/>
+    <delete file="jar_serverSPADIES/spadies_v${version.mayor}_server.jar"/>
+    <jar destfile="jar_serverSPADIES/spadies_v${version.mayor}_server.jar" basedir="binAux"/>
+    <delete dir="binAux"/>
+  </target>
+  <target name="backupDesarrollo">
+  	<tstamp />
+  	<echo message="Realizando backup desarrollo ${DSTAMP}_${TSTAMP}"/>
+    <property name="archivoBackup" value="DesarrolloSPADIES${version.mayor}_${DSTAMP}_${TSTAMP}.zip"/>
+  	<!-- <echo message="${archivoBackup}"/>-->
+  	<zip destfile="${archivoBackup}" basedir="./">
+      <include name="src/**"/>
+      <include name="lib/**"/>
+      <include name="docs/**"/>
+      <include name=".settings/**"/>
+      <include name="manifest.mf"/>
+      <include name=".project"/>
+      <include name=".classpath"/>
+      <include name="build.xml"/>
+  	</zip>
+  </target>
+  <target name="javadoc">
+    <javadoc
+             destdir="javadoc"
+             author="true"
+             version="true"
+             use="true"
+             windowtitle="SPADIES ${version.mayor}"
+             classpath="lib/jcommon-1.0.0.jar;lib/jfreechart-1.0.1.jar">
+      <packageset dir="src" defaultexcludes="yes">
+        <include name="spadies/**"/>
+        <exclude name="spadies/auxiliar/**"/>
+      </packageset>
+
+      <doctitle><![CDATA[<h1>SPADIES</h1>]]></doctitle>
+      <!-- <bottom><![CDATA[<i>Copyright &#169; 2000 Dummy Corp. All Rights Reserved.</i>]]></bottom>
+      <tag name="todo" scope="all" description="To do:"/>
+      -->
+      <group title="Kernel" packages="spadies.kernel*"/>
+      <group title="GUI" packages="spadies.gui*"/>
+<!--      <link offline="true" href="http://java.sun.com/j2se/1.5.0/docs/api/" packagelistLoc="C:\tmp"/>
+      <link href="http://developer.java.sun.com/developer/products/xml/docs/api/"/>
+      -->
+    </javadoc>
+  </target>
+</project>
