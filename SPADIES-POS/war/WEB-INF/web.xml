@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <context-param>
+    <param-name>spadies.datos</param-name>
+    <param-value>../datos</param-value>
+  </context-param>
+  <context-param>
+    <param-name>spadies.passwords</param-name>
+    <param-value>../passwd.csv</param-value>
+  </context-param>
+  <context-param>
+    <param-name>spadies.web_img</param-name>
+    <param-value>img/gen</param-value>
+  </context-param>
+  <context-param>
+    <param-name>spadies.descarga</param-name>
+    <param-value>C:/Trabajo/workspace/SPADIES2.5.7/spadies_v2.5.zip</param-value>
+  </context-param>
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>servletVariables</servlet-name>
+    <servlet-class>spadies.web.server.ServletVariables</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletConsultas</servlet-name>
+    <servlet-class>spadies.web.server.ServletConsultas</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletUsuario</servlet-name>
+    <servlet-class>spadies.web.server.ServletUsuario</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletConsultasPredefinidas</servlet-name>
+    <servlet-class>spadies.web.server.ServletConsultasPredefinidas</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletDInformacionAlumno</servlet-name>
+    <servlet-class>spadies.web.server.ServletDInformacionAlumno</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletDListaAlumno</servlet-name>
+    <servlet-class>spadies.web.server.ServletDListaAlumno</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletExportadorDatos</servlet-name>
+    <servlet-class>spadies.web.server.ServletExportadorDatos</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>servletDescarga</servlet-name>
+    <servlet-class>spadies.web.server.ServletDescarga</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>servletVariables</servlet-name>
+    <url-pattern>/spadies/variables</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletConsultas</servlet-name>
+    <url-pattern>/spadies/consultas</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletUsuario</servlet-name>
+    <url-pattern>/spadies/usuario</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletConsultasPredefinidas</servlet-name>
+    <url-pattern>/spadies/consultas_predefinidas</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletDInformacionAlumno</servlet-name>
+    <url-pattern>/spadiesd/alumno</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletDListaAlumno</servlet-name>
+    <url-pattern>/spadiesd/lalumno</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletExportadorDatos</servlet-name>
+    <url-pattern>/spadiesd/exporta</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>servletDescarga</servlet-name>
+    <url-pattern>/spadiesd/descarga</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>spadies.web.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/spadies_testgwt/greet</url-pattern>
+  </servlet-mapping>-->
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>principal.html</welcome-file>
+  </welcome-file-list>
+</web-app>

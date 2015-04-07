@@ -1,0 +1,92 @@
+.pnlUsuario {
+  font-size: 14px;
+  text-align: center;
+}
+.TooltipLogin {
+  background-color:#ddd;
+  border: 1px red;
+}
+
+.TooltipPopup {
+  background-color:#99d;
+  border: 1px red;
+}
+
+.spadies-tabn {
+  border-collapse:separate;
+  border:5px solid #999;
+  background-color:#ddd;
+}
+
+.spadies-tabn-celda {
+  width: 90px;
+  border : 1px solid #009;
+  background-color : #CCC;
+  padding:5px;
+}
+
+.spadies-tabn-celda2 {
+  width: 200px;
+  border : 1px solid #009;
+  background-color : #CCC;
+  padding:5px;
+}
+
+.categoria_link {
+	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+.categoria_desc {
+	font-size: 14px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-align: justify;
+}
+
+.gwt-Button_sel {
+  margin: 0;
+  padding: 3px 5px;
+  text-decoration: none;
+  font-size: small;
+  cursor: pointer;
+  cursor: hand;
+  background: url("images/hborder.png") repeat-x 0px -27px;
+  border: 1px outset #ccc;
+}
+.gwt-Button_sel:active {
+  border: 1px inset #ccc;
+}
+.gwt-Button_sel:hover {
+  border-color: #9cf #69e #69e #7af;
+}
+.gwt-Button_sel[disabled] {
+  cursor: default;
+  color: #888;
+}
+.gwt-Button_sel[disabled]:hover {
+  border: 1px outset #ccc;
+}
+
+.log-Button {
+  margin: 0;
+  padding: 3px 5px;
+  text-decoration: none;
+  font-size: small;
+  cursor: pointer;
+  cursor: hand;
+  background: url("images/hborder.png") repeat-x 0px -27px;
+  border: 1px outset #ccc;
+}
+.log-Button:active {
+  border: 1px inset #ccc;
+}
+.log-Button:hover {
+  border-color: #9cf #69e #69e #7af;
+}
+.log-Button[disabled] {
+  cursor: default;
+  color: #888;
+}
+.log-Button[disabled]:hover {
+  border: 1px outset #ccc;
+}
